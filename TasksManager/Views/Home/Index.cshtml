@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="charset" content="utf-8" />
+    <link rel="stylesheet" href="~/Content/jquerymobile/jquery.mobile-1.4.4.css" />
+    <link rel="stylesheet" href="~/Content/indexstyles.css" />
+    <link rel="shortcut icon" type="image/png" href="~/Content/flailing.png" />
+    <title>The To Do List</title>
+</head>
+<body>
+    <div data-role="page" id="main">
+        <div data-role="header" class="header ui-state-persist" data-theme="b">
+            <p>Welkom <span id="user"></span></p>
+            <a href="#new" class="ui-btn-icon-left ui-icon-plus ui-btn-active ui-btn ui-btn-right">Nieuw</a>
+        </div>
+        <div data-role="main" class="ui-content">
+            <div data-role="navbar" data-iconpos="bottom">
+                <ul>
+                    <li><a href="#main-list" data-icon="bars" class="ui-btn-active ui-state-persist" id="task-tab">Tasks</a></li>
+                    <li><a href="#members-list" data-icon="user">Leden</a></li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div id="main-list">
+                    <ul data-role="listview" data-inset="true" data-divider-theme="a">
+                        <li data-role="list-divider" id="lst-mine">Persoonlijk <span class="ui-li-count">0</span></li>
+                        <li data-role="list-divider" id="lst-other">Andere <span class="ui-li-count">0</span></li>
+                        <li data-role="list-divider" id="lst-done">Gedaan <span class="ui-li-count">0</span></li>
+                    </ul>
+                </div>
+                <div id="members-list">
+                    <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Zoek Leden..." data-divider-theme="a"></ul>
+
+                    <input type="text" placeholder="username" id="username" />
+                    <div data-role="controlgroup" data-type="horizontal">
+                        <button id="user-edit">Change Username</button>
+                        <button id="user-new">New User</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="page" id="new">
+        <div data-role="header" class="header" data-theme="b">
+            <a data-rel="back" href="#" class="ui-btn-icon-left ui-icon-back ui-btn">Terug</a>
+            <p>Nieuw</p>
+            <a data-rel="back" href="#" class="ui-btn-icon-left ui-icon-check ui-btn-active ui-btn" id="new-submit">Bewaar</a>
+        </div>
+        <div data-role="main" class="ui-content">
+            <form id="form-new">
+                <div>
+                    <label>Lid</label>
+                    <select class="dropdown-who" id="new-who"></select>
+                </div>
+                <div>
+                    <label>Beschrijving</label>
+                    <input type="text" id="new-text" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div data-role="page" id="edit">
+        <div data-role="header" class="header" data-theme="b">
+            <a data-rel="back" href="#" class="ui-btn-icon-left ui-icon-back ui-btn">Terug</a>
+            <p>Wijzig</p>
+            <a data-rel="back" href="#" class="ui-btn-icon-left ui-icon-check ui-btn-active ui-btn" id="edit-submit">Wijzig</a>
+        </div>
+
+        <div data-role="main" class='ui-content'>
+            <form id="form-edit">
+                <input type="hidden" id="edit-id" />
+
+                <fieldset>
+                    <label>Lid</label>
+                    <select id="edit-who" class="dropdown-who"></select>
+                </fieldset>
+                <select data-role="slider" data-corners="true" class=" ui-btn-active" id="edit-status">
+                    <option value="U">Te doen</option>
+                    <option value="F">Gedaan</option>
+                </select>
+
+                <a data-rel="back" href="#" id="delete-task" class="ui-btn-inline ui-btn ui-mini ui-btn-active ui-icon-delete ui-btn-icon-left" data-mini="true">Verwijderen</a>
+                <fieldset>
+                    <label>Beschrijving</label>
+                    <input type="text" id="edit-text" />
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <script src="~/Content/jquery-2.1.1.js"></script>
+    <script src="~/Content/jquerymobile/jquery.mobile-1.4.4.js"></script>
+    <script src="~/Content/ajaxscript.js" type="text/javascript"></script>
+</body>
+</html>

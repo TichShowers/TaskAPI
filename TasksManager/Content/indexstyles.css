@@ -1,0 +1,27 @@
+﻿.header {
+    text-align: center;
+    height: 45px;
+}
+
+    .header a {
+        border-radius: 20px;
+        margin-top: 3px;
+    }
+
+    .header p {
+        margin-top: 10px;
+    }
+
+
+#delete-task {
+    float: right;
+}
+
+.containing-element .ui-slider-switch {
+    width: 9em;
+    display: inline-block;
+}
+
+#members-list {
+    display: none;
+}
